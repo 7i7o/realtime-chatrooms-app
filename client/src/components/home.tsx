@@ -1,10 +1,13 @@
 import { Button, Heading, Input, Select, VStack } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ username, setUsername, room, setRoom, socket }: any) => {
+  const navigate = useNavigate();
   const joinRoom = () => {
     if (room !== "" && username !== "") {
       socket.emit("join_room", { username, room });
     }
+    navigate("/chat", { replace: true });
   };
 
   return (
@@ -27,7 +30,7 @@ const Home = ({ username, setUsername, room, setRoom, socket }: any) => {
         <option value="express">Express</option>
         <option value="react">React</option>
       </Select>
-      <Button variant="outline" w="100%">
+      <Button variant="outline" w="100%" onClick={joinRoom}>
         Join Room
       </Button>
     </VStack>
