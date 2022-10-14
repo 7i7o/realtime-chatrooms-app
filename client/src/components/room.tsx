@@ -1,13 +1,16 @@
 import {
   Button,
   Container,
+  Flex,
   Heading,
   List,
   ListItem,
+  Spacer,
   Stack,
 } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ColorModeToggle from "./colorModeToggle";
 import { IMsg } from "./messages";
 
 const Room = ({ socket, username, room }: any) => {
@@ -30,6 +33,10 @@ const Room = ({ socket, username, room }: any) => {
 
   return (
     <Stack direction="column" w={60}>
+      <Flex direction="row" w="100%">
+        {/* <Spacer /> */}
+        <ColorModeToggle />
+      </Flex>
       <Heading
         as="h2"
         size="lg"

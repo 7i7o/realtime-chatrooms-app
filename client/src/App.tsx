@@ -16,13 +16,13 @@ function App() {
   const [room, setRoom] = useState("");
   return (
     <Router>
-      <Box p="10" w="100%" h="100vh">
-        <HStack w="100%">
+      <Box py="2vh" w="100%" h="100vh">
+        {/* <HStack w="100%">
           <Text>
             Room: {room} - Username: {username}
           </Text>
           <Spacer /> <ColorModeToggle />
-        </HStack>
+        </HStack> */}
         <Routes>
           <Route
             path="/"
