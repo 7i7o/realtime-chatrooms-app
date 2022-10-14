@@ -20,7 +20,11 @@ const SendMessage = ({ socket, username, room }: any) => {
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
-      <Button onClick={sendMessage} rightIcon={<AiOutlineSend />}>
+      <Button
+        colorScheme="brand"
+        onClick={sendMessage}
+        rightIcon={<AiOutlineSend />}
+      >
         Send
       </Button>
     </Stack>

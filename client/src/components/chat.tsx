@@ -16,7 +16,7 @@ const Chat = ({ username, room, socket }: any) => {
     <Center>
       <Stack direction="row" spacing={2} px={10} py={0} h="96vh">
         <Room socket={socket} username={username} room={room} />
-        <Stack direction="column" h="96vh">
+        <Stack direction="column" h="94vh">
           <Flex w="100%" overflowY="scroll">
             <Messages socket={socket} username={username} room={room} />
           </Flex>

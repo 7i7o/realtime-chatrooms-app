@@ -16,7 +16,7 @@ function App() {
   const [room, setRoom] = useState("");
   return (
     <Router>
-      <Box py="2vh" w="100%" h="100vh">
+      <Box py="2vh" w="100%" h="98vh">
         {/* <HStack w="100%">
           <Text>
             Room: {room} - Username: {username}

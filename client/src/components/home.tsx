@@ -30,7 +30,7 @@ const Home = ({ username, setUsername, room, setRoom, socket }: any) => {
         <option value="express">Express</option>
         <option value="react">React</option>
       </Select>
-      <Button variant="outline" w="100%" onClick={joinRoom}>
+      <Button colorScheme="brand" variant="outline" w="100%" onClick={joinRoom}>
         Join Room
       </Button>
     </VStack>

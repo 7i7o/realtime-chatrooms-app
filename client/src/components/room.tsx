@@ -1,14 +1,24 @@
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Button,
   Container,
   Flex,
   Heading,
+  Hide,
+  IconButton,
   List,
   ListItem,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
+  Show,
   Spacer,
   Stack,
 } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import ColorModeToggle from "./colorModeToggle";
 import { IMsg } from "./messages";
@@ -31,12 +41,8 @@ const Room = ({ socket, username, room }: any) => {
     navigate("/", { replace: true });
   };
 
-  return (
-    <Stack direction="column" w={60}>
-      <Flex direction="row" w="100%">
-        {/* <Spacer /> */}
-        <ColorModeToggle />
-      </Flex>
+  const getRoomData = () => (
+    <Stack direction="column">
       <Heading
         as="h2"
         size="lg"
@@ -48,7 +54,12 @@ const Room = ({ socket, username, room }: any) => {
       >
         {room}
       </Heading>
-      <Button onClick={leaveRoom} w="100%">
+      <Button
+        colorScheme="brand"
+        onClick={leaveRoom}
+        w="100%"
+        variant="outline"
+      >
         Leave
       </Button>
       {users.length > 0 && (
@@ -66,6 +77,29 @@ const Room = ({ socket, username, room }: any) => {
           </ListItem>
         ))}
       </List>
+    </Stack>
+  );
+
+  return (
+    <Stack direction="column" w={{ base: 12, md: 60 }} h="94vh">
+      <Show above="md">{getRoomData()}</Show>
+      <Hide above="md">
+        <Popover placement="bottom-end">
+          <PopoverTrigger>
+            <Button colorScheme="brand">
+              <HamburgerIcon />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverBody>{getRoomData()}</PopoverBody>
+          </PopoverContent>
+        </Popover>
+      </Hide>
+      <Spacer />
+      <Flex>
+        <ColorModeToggle />
+      </Flex>
     </Stack>
   );
 };
