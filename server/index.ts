@@ -107,11 +107,12 @@ io.on("connection", (socket) => {
     const user = allUsers.find((u) => u.id == socket.id);
     if (user?.username) {
       allUsers = leaveRoom(socket.id, allUsers);
+      const __createdtime__ = Date.now().toString();
       socket.to(user.room).emit("chatroom_users", allUsers);
       socket.to(user.room).emit("receive_message", {
         message: `${user.username} has disconnected the chat room`,
         username: CHAT_BOT,
-        //   __createdtime__,
+        __createdtime__,
       });
     }
   });

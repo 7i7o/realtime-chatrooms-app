@@ -29,30 +29,36 @@ const Room = ({ socket, username, room }: any) => {
   };
 
   return (
-    <Stack direction="column">
-      <Heading as="h2" size="lg">
+    <Stack direction="column" w={60}>
+      <Heading
+        as="h2"
+        size="lg"
+        bg="blackAlpha.200"
+        rounded="lg"
+        px={3}
+        py={2}
+        boxShadow="lg"
+      >
         {room}
       </Heading>
-      <Container>
-        {users.length > 0 && (
-          <Heading as="h5" size="sm">
-            Users
-          </Heading>
-        )}
-        <List>
-          {users.map((user, i) => (
-            <ListItem
-              key={i}
-              fontWeight={username === user.username ? "bold" : "normal"}
-            >
-              {user.username}
-            </ListItem>
-          ))}
-        </List>
-        <Button onClick={leaveRoom} w="100%">
-          Leave
-        </Button>
-      </Container>
+      <Button onClick={leaveRoom} w="100%">
+        Leave
+      </Button>
+      {users.length > 0 && (
+        <Heading as="h5" size="md">
+          Users
+        </Heading>
+      )}
+      <List>
+        {users.map((user, i) => (
+          <ListItem
+            key={i}
+            fontWeight={username === user.username ? "bold" : "normal"}
+          >
+            {user.username}
+          </ListItem>
+        ))}
+      </List>
     </Stack>
   );
 };

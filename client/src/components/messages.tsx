@@ -47,14 +47,15 @@ const Messages = ({ socket, username, room }: any) => {
   };
 
   return (
-    <Stack direction="column" spacing={2}>
+    <Stack direction="column" spacing={2} w={96}>
       {messages.map((msg: IMsg, i) => (
         <Stack
           direction="column"
           bg="blackAlpha.100"
           rounded="lg"
-          borderBottomColor="blackAlpha.400"
-          borderBottomWidth="2px"
+          //   borderBottomColor="blackAlpha.400"
+          //   borderBottomWidth="2px"
+          boxShadow="md"
           px={4}
           py={2}
           key={i}
