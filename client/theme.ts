@@ -7,6 +7,18 @@ const config: ThemeConfig = {
 
 const colors = {
   brand: {
+    //["2c3a37","3c4e4b","4b625e","5a7672","698a85","87b2ac","a5dad2","bfe5df","d9f0ec"]
+    100: "#d9f0ec",
+    200: "#bfe5df",
+    300: "#a5dad2",
+    400: "#87b2ac",
+    500: "#698a85",
+    600: "#5a7672",
+    700: "#4b625e",
+    800: "#3c4e4b",
+    900: "#2c3a37",
+  },
+  brandOrange: {
     100: "#eb9b8f",
     200: "#e99184",
     300: "#e78678",
@@ -17,7 +29,7 @@ const colors = {
     800: "#a95245",
     900: "#9A4B3F",
   },
-  brandOld: {
+  brandGreen: {
     100: "#C4F550",
     200: "#BEF43E",
     300: "#B7F32B",
